@@ -4,38 +4,13 @@ List<DateModel> getDates() {
   List<DateModel> dates = <DateModel>[];
   DateModel dateModel = DateModel();
 
-  //1
-  dateModel.date = "10";
-  dateModel.weekDay = "Sun";
-  dates.add(dateModel);
+  dates.add(DateModel(date: '10', weekDay: 'Sun'));
+  dates.add(DateModel(date: '11', weekDay: 'Mon'));
+  dates.add(DateModel(date: '12', weekDay: 'Tue'));
+  dates.add(DateModel(date: '13', weekDay: 'Wed'));
+  dates.add(DateModel(date: '14', weekDay: 'Thu'));
+  dates.add(DateModel(date: '15', weekDay: 'Fri'));
+  dates.add(DateModel(date: '16', weekDay: 'Sat'));
 
-  //2
-  dateModel.date = "11";
-  dateModel.weekDay = "Mon";
-  dates.add(dateModel);
-
-  //3
-  dateModel.date = "12";
-  dateModel.weekDay = "Tue";
-  dates.add(dateModel);
-
-  //4
-  dateModel.date = "13";
-  dateModel.weekDay = "Wed";
-  dates.add(dateModel);
-
-  //5
-  dateModel.date = "14";
-  dateModel.weekDay = "Thu";
-  dates.add(dateModel);
-
-  //6
-  dateModel.date = "15";
-  dateModel.weekDay = "Fri";
-  dates.add(dateModel);
-
-  //7
-  dateModel.date = "16";
-  dateModel.weekDay = "Sat";
-  dates.add(dateModel);
+  return dates;
 }

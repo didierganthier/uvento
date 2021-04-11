@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uvento/data/data.dart';
+import 'package:uvento/models/date_models.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,6 +8,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<DateModel> dates = <DateModel>[];
+  String todayDateIs = "12";
+
+  @override
+  void initState() {
+    super.initState();
+    dates = getDates();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Spacer(),
                       Icon(
                         Icons.notifications_none_outlined,
-                        size: 27,
+                        size: 22,
                         color: Colors.white,
                       ),
                       SizedBox(
@@ -64,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Icon(
                         Icons.grid_view,
-                        size: 27,
+                        size: 22,
                         color: Colors.white,
                       ),
                     ],
@@ -106,6 +117,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 60,
+                    child: ListView.builder(
+                      itemCount: dates.length,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () => print(dates[index].weekDay),
+                          child: DateTile(
+                            weekDay: dates[index].weekDay,
+                            date: dates[index].date,
+                            isSelected: todayDateIs == dates[index].date,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -117,25 +149,31 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class DateTile extends StatelessWidget {
-  String weekDay;
-  String date;
-  bool isSelected;
+  final weekDay, date, isSelected;
+
+  DateTile({this.weekDay, this.date, this.isSelected});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: isSelected ? Color(0xffFCCD00) : Colors.transparent,
+      margin: EdgeInsets.only(right: 16),
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: isSelected ? Color(0xffFCCD00) : Colors.transparent,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "10",
+            date,
             style: TextStyle(color: isSelected ? Colors.black54 : Colors.white),
           ),
           SizedBox(
             height: 13,
           ),
           Text(
-            "Sun",
+            weekDay,
             style: TextStyle(color: isSelected ? Colors.black54 : Colors.white),
           ),
         ],
