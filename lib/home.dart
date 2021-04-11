@@ -19,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               padding: EdgeInsets.symmetric(
-                vertical: 50,
-                horizontal: 50,
+                vertical: 60,
+                horizontal: 30,
               ),
               child: Column(
                 children: [
@@ -28,7 +28,74 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Image.asset(
                         "assets/logo.png",
-                        height: 30,
+                        height: 28,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "UVE",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          Text(
+                            "NTO",
+                            style: TextStyle(
+                              color: Color(0xffFFCD00),
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.notifications_none_outlined,
+                        size: 27,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Icon(
+                        Icons.grid_view,
+                        size: 27,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hello, Didier",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 22,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text(
+                            "Let's explore what's happening nearby",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
