@@ -92,10 +92,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             "Let's explore what's happening nearby",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 15,
                             ),
                           ),
                         ],
+                      ),
+                      Spacer(),
+                      Container(
+                        child: Image.asset(
+                          "assets/didier.jpg",
+                          height: 30,
+                        ),
                       ),
                     ],
                   ),
@@ -104,6 +111,34 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class DateTile extends StatelessWidget {
+  String weekDay;
+  String date;
+  bool isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: isSelected ? Color(0xffFCCD00) : Colors.transparent,
+      child: Column(
+        children: [
+          Text(
+            "10",
+            style: TextStyle(color: isSelected ? Colors.black54 : Colors.white),
+          ),
+          SizedBox(
+            height: 13,
+          ),
+          Text(
+            "Sun",
+            style: TextStyle(color: isSelected ? Colors.black54 : Colors.white),
+          ),
+        ],
       ),
     );
   }
